@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: SelectCase(),
-      // home: ChatCaso(storage: CounterStorage()),
     );
   }
 
