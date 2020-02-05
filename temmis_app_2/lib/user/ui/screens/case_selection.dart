@@ -86,8 +86,9 @@ class _SelectCaseState extends State<SelectCase> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRol()));
                   },
                 )
-              )
-            ]),
+              ),
+            ]
+            ),
           ),
         ));
   }
