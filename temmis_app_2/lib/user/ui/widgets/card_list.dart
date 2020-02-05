@@ -11,9 +11,9 @@ class CardList extends StatelessWidget{
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          CardCases("Caso 1"),
-          CardCases("Caso 2"),
-          CardCases("Caso 3"),
+          CardCases("Caso 1","caso 1"),
+          CardCases("Caso 2","caso 2"),
+          CardCases("Caso 3","caso 3"),
         ],
       ),
     );

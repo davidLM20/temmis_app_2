@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:temmis_app_2/resousers/colors.dart';
 
 class CardCases extends StatelessWidget{
 
   String txt_card;
-  Color colors;
+  String num_case;
   
-  CardCases(this.txt_card);
+  CardCases(this.txt_card, this.num_case);
   @override
   Widget build(BuildContext context) {
 
     final star = Container(
+      padding: EdgeInsets.only(left: 5.0),
       child: Icon(
         Icons.star,
+        color: Colors.amber,       
+        size: 50.0,
+      ),
+    );
+    
+    final star_medium = Container(
+      child: Icon(
+        Icons.star_half,
         color: Colors.amber,
         size: 55.0,
       ),
     );
+
 
     final txt_case = Container(
       margin: EdgeInsets.only(
@@ -24,13 +35,13 @@ class CardCases extends StatelessWidget{
       child: Text(txt_card,
         style: TextStyle(
           fontSize: 25.0,
-          color: Colors.black),
+          color: Colors.white),
         ),
     );
     
     final card = Container(
       margin: EdgeInsets.only(
-        left: 35.0
+        left: 35.0,
       ),
       height: 270.0,
       width: 170.0,
@@ -40,17 +51,23 @@ class CardCases extends StatelessWidget{
         child: Column(
           children: <Widget>[
             txt_case,
-            star,
-            
+            Row(
+              children: <Widget>[
+                star,
+                star,
+                star_medium
+              ],
+            )           
           ],
         ),
-        
+       decoration: BoxDecoration(
+         color: _selectColor(num_case)
+       ),
         ),
       )
     );
     
     
-    // TODO: implement build
     return Container(
       child: Row(
         children: <Widget>[
@@ -59,6 +76,26 @@ class CardCases extends StatelessWidget{
       ),
     );
   }
+
+  Color _selectColor(String cases){
+    var color;
+    switch (cases.toLowerCase()) {
+      case "caso 1":
+        color = IndevColors.pink;
+        break;
+      case "caso 2":
+        color = IndevColors.blue2;
+        break;
+      case "caso 3":
+        color = IndevColors.blue;
+        break;    
+    }
+
+    return color;
+  }
+  
 }
+
+
 
 
