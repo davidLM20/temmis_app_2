@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Temis Ascendere',
       theme: ThemeData(
+        fontFamily: 'Schyler',
         primarySwatch: Colors.blue,
       ),
       home: SelectCase(),

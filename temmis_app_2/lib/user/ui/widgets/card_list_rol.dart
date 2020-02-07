@@ -10,9 +10,9 @@ class ListRol extends StatelessWidget{
     return Container(
       child: Column(
         children: <Widget>[
-          RoleCard("Juez", "Descripcion","Juez"),
-          RoleCard("Fiscalia", "Descripcion","Fiscalia"),
-          RoleCard("Defensa", "Descripcion","Defensa")
+          RoleCard("Juez", "Descripcion","1"),
+          RoleCard("Fiscalia", "Descripcion","2"),
+          RoleCard("Defensa", "Descripcion","3")
         ],
       ),
     );

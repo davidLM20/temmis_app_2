@@ -7,4 +7,5 @@ class IndevColors {
   static const Color blue = const Color(0xFF1A2377);
   static const Color gold = const Color(0xFFFFD77D);
   static const Color black = const Color(0xFF212121);
+  static const Color lila = const Color(0xFFD375FE);
 }

@@ -16,7 +16,7 @@ class _SelectCaseState extends State<SelectCase> {
       backgroundColor: IndevColors.gold,
         body: SingleChildScrollView(      
           child: Container(
-            height: MediaQuery.of(context).size.height -50,
+            height: MediaQuery.of(context).size.height -40,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -35,18 +35,20 @@ class _SelectCaseState extends State<SelectCase> {
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 33.0,
-                        fontFamily: "Calibre-Semibold",
                         letterSpacing: 2,
                         wordSpacing: 100),
                     children: <TextSpan>[
-                      TextSpan(text: "TEMIS "),
+                      TextSpan(text: "TEMIS ",
+                      style: TextStyle(
+                        fontFamily: 'Schyler'
+                      )
+                      ),
                       TextSpan(
                           text: "ASCENDERE",
                           style: TextStyle(
                             color: Colors.black,
-                            fontFamily: "Comfortaa",
-                            fontStyle: FontStyle.normal,
                             letterSpacing: 1,
+                            fontFamily: 'Schyler'
                           ))
                     ]),
               ),
@@ -59,7 +61,7 @@ class _SelectCaseState extends State<SelectCase> {
                       style: TextStyle(
                         color: Color(0xDD000000),
                         fontSize: 25.0,
-                        fontFamily: "Calibre-Semibold",
+                        fontFamily: "Schyler",
                         letterSpacing: 1,
                       ),
                       children: <TextSpan>[
@@ -70,7 +72,7 @@ class _SelectCaseState extends State<SelectCase> {
                             text: "una audiencia",
                             style: TextStyle(
                               color: Color(0xDD000000),
-                              fontFamily: "Comfortaa",
+                              fontFamily: "Schyler",
                               fontStyle: FontStyle.normal,
                               letterSpacing: 1,
                             ))

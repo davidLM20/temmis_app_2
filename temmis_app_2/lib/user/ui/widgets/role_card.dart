@@ -5,17 +5,16 @@ class RoleCard extends StatelessWidget {
 
   String txt_role;
   String txt_description;
-  String funcion;
+  String funtion_rol;
 
 
-  RoleCard(this.txt_role, this.txt_description, this.funcion);
+  RoleCard(this.txt_role, this.txt_description, this.funtion_rol);
  
   @override
   Widget build(BuildContext context) {
     final avatar = Container(
       height: 55.0,
       width: 55.0,
-      color: _selectColor(funcion),
       margin: EdgeInsets.only(right: 20.0, left: 20.0),
       child: Icon(Icons.party_mode,
         color: Colors.white,
@@ -23,22 +22,33 @@ class RoleCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        color: IndevColors.gold
+        color: _selectColor(funtion_rol)
       ),
     );
 
     final name_role = Container(
-      margin: EdgeInsets.only(top: 20.0, right: 30.0),
       child: Text(txt_role,
         style: TextStyle(
-          fontSize: 25.0
+          fontSize: 25.0,
+          fontFamily: 'Schyler'
         ),
       ),
     );
 
     final description_role = Container(
-      margin: EdgeInsets.only(top: 5.0,  right: 3.0),
-      child:  Text(txt_description),
+      child:  Text(txt_description,
+        style: TextStyle(
+          fontFamily: 'Schyler'
+        ),
+      ),
+    );
+
+    final text_role =Container(
+      margin: EdgeInsets.only(top: 20.0),
+      child: Column(children: <Widget>[
+        name_role,
+        description_role
+      ],),
     );
 
     return Container(
@@ -52,26 +62,22 @@ class RoleCard extends StatelessWidget {
       child: Row(
         children: <Widget>[
           avatar,
-          Column(
-            children: <Widget>[
-              name_role,
-              description_role
-            ],
-          )
+          text_role
         ],
       ),
     );
   }
-  Color _selectColor(String cases){
+
+  Color _selectColor(String rol){
     var color;
-    switch (cases.toLowerCase()) {
-      case "Juez":
+    switch (rol.toLowerCase()) {
+      case "1":
         color = IndevColors.pink;
         break;
-      case "Fiscalia":
-        color = IndevColors.blue2;
+      case "2":
+        color = IndevColors.lila;
         break;
-      case "Defensa":
+      case "3":
         color = IndevColors.blue;
         break;    
     }
