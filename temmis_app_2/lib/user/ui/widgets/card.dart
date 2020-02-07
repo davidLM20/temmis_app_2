@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/resousers/size_conifg.dart';
 
 class CardCases extends StatelessWidget{
+  
 
   String txt_card;
   String num_case;
@@ -9,6 +11,8 @@ class CardCases extends StatelessWidget{
   CardCases(this.txt_card, this.num_case);
   @override
   Widget build(BuildContext context) {
+
+    SizeConfig().init(context);
 
     final star = Container(
       padding: EdgeInsets.only(left: 13.0),
@@ -27,15 +31,23 @@ class CardCases extends StatelessWidget{
         size: 40.0,
       ),
     );
+    final star_void = Container(
+      margin: EdgeInsets.only(left: 10.0),
+      child: Icon(
+        Icons.star_border,
+        color: Colors.amber,
+        size: 40.0,
+      ),
+    );
 
 
     final txt_case = Container(
       margin: EdgeInsets.only(
-        right: 50.0,top: 20.0, bottom: 130.0,
+        right: 50.0,top: 20.0, bottom: SizeConfig.blockSizeVertical*20,
       ),
       child: Text(txt_card,
         style: TextStyle(
-          fontSize: 25.0,
+          fontSize: SizeConfig.blockSizeHorizontal*7,
           color: Colors.white,
           fontFamily: 'Schyler'),
         ),
@@ -45,8 +57,8 @@ class CardCases extends StatelessWidget{
       margin: EdgeInsets.only(
         left: 35.0,
       ),
-      height: 270.0,
-      width: 170.0,
+      height: SizeConfig.blockSizeVertical*35,
+      width: SizeConfig.blockSizeHorizontal*43,
       child: ClipRRect(
       borderRadius: BorderRadius.circular(30.0),
       child: Container(
@@ -56,8 +68,8 @@ class CardCases extends StatelessWidget{
             Row(
               children: <Widget>[
                 star,
-                star,
-                star_medium
+                star_medium,
+                star_void
               ],
             )           
           ],
