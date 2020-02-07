@@ -11,31 +11,33 @@ class CardCases extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final star = Container(
-      padding: EdgeInsets.only(left: 5.0),
+      padding: EdgeInsets.only(left: 13.0),
       child: Icon(
         Icons.star,
         color: Colors.amber,       
-        size: 50.0,
+        size: 40.0,
       ),
     );
     
     final star_medium = Container(
+      margin: EdgeInsets.only(left: 10.0),
       child: Icon(
         Icons.star_half,
         color: Colors.amber,
-        size: 55.0,
+        size: 40.0,
       ),
     );
 
 
     final txt_case = Container(
       margin: EdgeInsets.only(
-        right: 50.0,top: 20.0, bottom: 130.0 
+        right: 50.0,top: 20.0, bottom: 130.0,
       ),
       child: Text(txt_card,
         style: TextStyle(
           fontSize: 25.0,
-          color: Colors.white),
+          color: Colors.white,
+          fontFamily: 'Schyler'),
         ),
     );
     

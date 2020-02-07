@@ -9,25 +9,26 @@ class SelectRol extends StatelessWidget {
     // TODO: implement build
 
     final txt_chargues = Container(
-      margin: EdgeInsets.only(top: 150.0, bottom: 20.0, left: 30.0),
+      margin: EdgeInsets.only(top: 120.0, bottom: 20.0, left: 30.0),
       child: RichText(
         text: TextSpan(
             style: TextStyle(
                 color: Color(0xDD000000),
                 fontSize: 40.0,
-                fontFamily: "Calibre-Semibold",
                 letterSpacing: 1,
                 wordSpacing: 3000),
             children: <TextSpan>[
               TextSpan(
                 text: "Formulación ",
+                style: TextStyle(
+                    fontFamily: 'Schyler',
+                )
               ),
               TextSpan(
                   text: "Cargos",
                   style: TextStyle(
+                    fontFamily: 'Schyler',
                     color: Color(0xDD000000),
-                    fontFamily: "Comfortaa",
-                    fontStyle: FontStyle.normal,
                     letterSpacing: 1,
                   ))
             ]),
@@ -35,9 +36,13 @@ class SelectRol extends StatelessWidget {
     );
 
     final back_button_role = Container(
-
+      height: 80.0,
+      width: 80.0,
       margin: EdgeInsets.only(top: 50.0, right: 300.0),
-      child: BackButton(),
+      child: InkWell( child: Icon(Icons.arrow_back, size: 40.0,), onTap: (){
+        Navigator.pop(context);
+      },),
+      
     );
 
     return Scaffold(
