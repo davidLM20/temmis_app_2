@@ -16,11 +16,11 @@ class CardCases extends StatelessWidget{
     SizeConfig().init(context);
 
     final star = Container(
-      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*8),
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*3),
       child: Icon(
         Icons.star,
         color: Colors.amber,       
-        size: 40.0,
+        size: SizeConfig.blockSizeHorizontal *13.5,
       ),
     );
     
@@ -29,7 +29,7 @@ class CardCases extends StatelessWidget{
       child: Icon(
         Icons.star_half,
         color: Colors.amber,
-        size: 40.0,
+        size: SizeConfig.blockSizeHorizontal *13.5,
       ),
     );
     final star_void = Container(
@@ -37,7 +37,7 @@ class CardCases extends StatelessWidget{
       child: Icon(
         Icons.star_border,
         color: Colors.amber,
-        size: 40.0,
+        size: SizeConfig.blockSizeHorizontal *13.5,
       ),
     );
 
