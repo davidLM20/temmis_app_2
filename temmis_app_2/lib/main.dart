@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/thread/ui/screens/chatCase.dart';
-import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
+//import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
 
 void main() => runApp(MyApp());
 
