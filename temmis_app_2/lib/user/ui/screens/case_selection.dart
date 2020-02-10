@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
@@ -12,8 +13,9 @@ class SelectCase extends StatefulWidget {
 class _SelectCaseState extends State<SelectCase> {
   @override
   Widget build(BuildContext context) {
+
     SizeConfig().init(context);
-    // TODO: implement build
+    
     return Scaffold(
       backgroundColor: IndevColors.gold,
         body: SingleChildScrollView(      
@@ -28,15 +30,15 @@ class _SelectCaseState extends State<SelectCase> {
             child: Column(children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: SizeConfig.blockSizeVertical*15, bottom: 8.0),
+                    left: 12.0, right: 12.0, top: SizeConfig.blockSizeVertical*10, bottom: 0.0),
               ),
               Container(
-                margin: EdgeInsets.only(left: 35.0),
+                margin: EdgeInsets.only(left: 35.0, top: SizeConfig.blockSizeVertical*5),
                 child: RichText(
                 text: TextSpan(
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: SizeConfig.blockSizeHorizontal*10,
+                        fontSize: SizeConfig.safeBlockHorizontal*10,
                         letterSpacing: 2,
                         wordSpacing: 100),
                     children: <TextSpan>[
@@ -57,12 +59,12 @@ class _SelectCaseState extends State<SelectCase> {
               ),
               Container(
                 margin: EdgeInsets.only(
-                  top: 70.0, bottom: SizeConfig.blockSizeVertical*5, left: 35.0),
+                  top: SizeConfig.blockSizeVertical*8, bottom: SizeConfig.blockSizeVertical*1, left: 35.0),
                 child: RichText(
                   text: TextSpan(
                       style: TextStyle(
                         color: Color(0xDD000000),
-                        fontSize: SizeConfig.blockSizeHorizontal*7,
+                        fontSize: SizeConfig.safeBlockHorizontal*6,
                         fontFamily: "Schyler",
                         letterSpacing: 1,
                       ),

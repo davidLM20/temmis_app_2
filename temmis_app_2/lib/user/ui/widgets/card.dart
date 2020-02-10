@@ -10,12 +10,13 @@ class CardCases extends StatelessWidget{
   
   CardCases(this.txt_card, this.num_case);
   @override
+
   Widget build(BuildContext context) {
 
     SizeConfig().init(context);
 
     final star = Container(
-      padding: EdgeInsets.only(left: 13.0),
+      padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*8),
       child: Icon(
         Icons.star,
         color: Colors.amber,       
@@ -55,10 +56,10 @@ class CardCases extends StatelessWidget{
     
     final card = Container(
       margin: EdgeInsets.only(
-        left: 35.0,
+        left: 35.0, bottom: SizeConfig.safeBlockVertical*2
       ),
-      height: SizeConfig.blockSizeVertical*35,
-      width: SizeConfig.blockSizeHorizontal*43,
+      height: SizeConfig.safeBlockVertical*40,
+      width: SizeConfig.blockSizeHorizontal*50,
       child: ClipRRect(
       borderRadius: BorderRadius.circular(30.0),
       child: Container(

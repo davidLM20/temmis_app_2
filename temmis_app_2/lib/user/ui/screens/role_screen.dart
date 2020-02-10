@@ -42,7 +42,7 @@ class SelectRol extends StatelessWidget {
     final back_button_role = Container(
       height: SizeConfig.blockSizeVertical*8,
       width: SizeConfig.blockSizeHorizontal*8,
-      margin: EdgeInsets.only(top: 50.0, right: 300.0),
+      margin: EdgeInsets.only(top: 50.0, right: SizeConfig.blockSizeHorizontal*70),
       child: InkWell( child: Icon(Icons.arrow_back, size: SizeConfig.blockSizeHorizontal*9,), onTap: (){
         Navigator.pop(context);
       },),
@@ -58,7 +58,7 @@ class SelectRol extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30.0),
                     bottomLeft: Radius.circular(30.0))),
-            margin: EdgeInsets.only(left: 30.0),
+            margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal*6),
             child: Column(
               children: <Widget>[
                 back_button_role,

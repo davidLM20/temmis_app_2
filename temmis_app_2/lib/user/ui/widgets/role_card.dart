@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/resousers/size_conifg.dart';
 
 class RoleCard extends StatelessWidget {
 
   String txt_role;
   String txt_description;
   String funtion_rol;
+  String rol_icon;
 
 
-  RoleCard(this.txt_role, this.txt_description, this.funtion_rol);
+  RoleCard(this.txt_role, this.txt_description, this.funtion_rol, this.rol_icon);
  
   @override
   Widget build(BuildContext context) {
+    
+    SizeConfig().init(context);
+
     final avatar = Container(
-      height: 55.0,
-      width: 55.0,
+      height: SizeConfig.blockSizeVertical*7,
+      width: SizeConfig.blockSizeHorizontal*16,
       margin: EdgeInsets.only(right: 20.0, left: 20.0),
-      child: Icon(Icons.party_mode,
+      /*child: Icon(Icons.ac_unit,
         color: Colors.white,
-        size: 45.0,
+        size: SizeConfig.blockSizeVertical*5,
+      ),*/
+      child: Container(
+        child: _selectIcons(rol_icon, color: _selectColor(funtion_rol)),
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -29,22 +37,24 @@ class RoleCard extends StatelessWidget {
     final name_role = Container(
       child: Text(txt_role,
         style: TextStyle(
-          fontSize: 25.0,
+          fontSize: SizeConfig.blockSizeVertical*3.2,
           fontFamily: 'Schyler'
         ),
       ),
     );
 
     final description_role = Container(
+
       child:  Text(txt_description,
         style: TextStyle(
-          fontFamily: 'Schyler'
+          fontFamily: 'Schyler',
+          fontSize: SizeConfig.blockSizeVertical*2
         ),
       ),
     );
 
     final text_role =Container(
-      margin: EdgeInsets.only(top: 20.0),
+      margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical*2.5),
       child: Column(children: <Widget>[
         name_role,
         description_role
@@ -52,12 +62,12 @@ class RoleCard extends StatelessWidget {
     );
 
     return Container(
-      height: 100.0,
+      height: SizeConfig.blockSizeVertical*12,
       width: 320.0,
-      margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 40.0),
+      margin: EdgeInsets.only(left: 20.0, right: 20.0, top: SizeConfig.blockSizeVertical*3),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black12, width: 2.0),
-        borderRadius: BorderRadius.circular(15.0)
+        borderRadius: BorderRadius.circular(SizeConfig.blockSizeVertical*2)
       ),
       child: Row(
         children: <Widget>[
@@ -83,6 +93,22 @@ class RoleCard extends StatelessWidget {
     }
 
     return color;
+  }
+
+  Icon _selectIcons(String iconRol, {Color color}){
+    var icon;
+    switch (iconRol.toLowerCase()) {
+      case "4":
+        icon = Icon(Icons.account_balance, color: Colors.white,);
+        break;
+      case "5":
+        icon = Icon(Icons.assignment, color: Colors.white,);
+        break;
+      case "6":
+        icon = Icon(Icons.business_center, color: Colors.white,);
+        break;    
+    }
+    return icon;
   }
 
 }
