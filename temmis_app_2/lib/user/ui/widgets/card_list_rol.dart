@@ -11,7 +11,8 @@ class ListRol extends StatelessWidget{
     SizeConfig().init(context);
 
     return Container(
-      height: SizeConfig.blockSizeVertical*50,
+      height: SizeConfig.blockSizeVertical*45,
+      margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical*4),
       child: Column(
         children: <Widget>[
           RoleCard("Juez", "Descripción","1","4"),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class RoleCard extends StatelessWidget {
 
@@ -26,6 +27,7 @@ class RoleCard extends StatelessWidget {
         size: SizeConfig.blockSizeVertical*5,
       ),*/
       child: Container(
+        padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal*1.5),
         child: _selectIcons(rol_icon, color: _selectColor(funtion_rol)),
       ),
       decoration: BoxDecoration(
@@ -95,17 +97,17 @@ class RoleCard extends StatelessWidget {
     return color;
   }
 
-  Icon _selectIcons(String iconRol, {Color color}){
+  SvgPicture _selectIcons(String iconRol, {Color color}){
     var icon;
     switch (iconRol.toLowerCase()) {
       case "4":
-        icon = Icon(Icons.account_balance, color: Colors.white,);
+        icon = SvgPicture.asset("assets/img/juez_color.svg",);
         break;
       case "5":
-        icon = Icon(Icons.assignment, color: Colors.white,);
+        icon = SvgPicture.asset("assets/img/fiscalia_color.svg");
         break;
       case "6":
-        icon = Icon(Icons.business_center, color: Colors.white,);
+        icon = SvgPicture.asset("assets/img/abogado_color.svg");
         break;    
     }
     return icon;
