@@ -15,7 +15,6 @@ class BubbleChat extends StatelessWidget {
       //: Colors.black,
       padding: isMe ? EdgeInsets.only(left: 40) : EdgeInsets.only(right: 40),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Column(
               mainAxisAlignment:
@@ -26,8 +25,8 @@ class BubbleChat extends StatelessWidget {
                 Container(
                   //width: 500,
                   //color: Colors.pink,
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  margin: EdgeInsets.only(left: 24, right: 24),
+                  padding: EdgeInsets.only(top: 5, left: 10, right: 10),
                   child: Column(children: <Widget>[
                     Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
