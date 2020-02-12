@@ -63,6 +63,7 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
+    - assets/
     - assets/img/abogado_color.svg
     - assets/img/fiscalia_color.svg
     - assets/img/juez_color.svg

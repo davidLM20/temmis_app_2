@@ -1,0 +1,184 @@
+{
+    "description": "",
+    "route": [
+        {
+            "role": "Fiscalía",
+            "event": [
+                {
+                    "id": 1,
+                    "text": "",
+                    "role": "",
+                    "next": 2
+                },
+                {
+                    "id": 0,
+                    "role": "",
+                    "option": [
+                        {
+                            "text": "",
+                            "score": 100,
+                            "next": 0
+                        },
+                        {
+                            "text": "",
+                            "score": 100,
+                            "next": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "role": "Defensa",
+            "event": []
+        },
+        {
+            "role": "Juez",
+            "event": [
+                {
+                    "id": 1,
+                    "text": "Secretario, ¿se encuentran presentes las partes procesales?",
+                    "role": "Juez",
+                    "next": 2
+                },
+                {
+                    "id": 2,
+                    "text": "Si señor Juez, se encuentran presentes",
+                    "role": "Secretario",
+                    "next": 3
+                },
+                {
+                    "id": 3,
+                    "text": "Declaro instalada la audiencia",
+                    "role": "Juez",
+                    "next": 4
+                },
+                {
+                    "id": 4,
+                    "text": "Declaro instalada la audiencia",
+                    "role": "Juez",
+                    "next": 5
+                },
+                {
+                    "id": 5,
+                    "text": "¿Existe algún  criterios con respecto a la legalidad de la aprehensión?",
+                    "role": "Juez",
+                    "next": 6
+                },
+                {
+                    "id": 7,
+                    "text": "No señor Juez",
+                    "role": "Defensa",
+                    "next": 8
+                },
+                {
+                    "id": 8,
+                    "text": "No señor Juez",
+                    "role": "Fiscalia",
+                    "next": 9
+                },
+                {
+                    "id": 9,
+                    "text": "Al no existir criterio alguno declaro la legalidad de la aprehensión",
+                    "role": "Fiscalia",
+                    "next": 10
+                },
+                {
+                    "id": 9,
+                    "text": "Procedamos con los fundamentos de hecho",
+                    "role": "Juez",
+                    "next": 10
+                },
+                {
+                    "id": 10,
+                    "description": "Selecciona una opcción",
+                    "option": [
+                        {
+                            "text": "1. El 17 de junio del presente año a las 8:30 cerca de la estación a buses, a la altura de la calle 10 de Agosto se acerca al señor Juan Plaza el señor José Anteparra, llamando su atención hacia un callejón con el fin de venderle drogas. Las dos personas se retiran 20 metros cerca del lugar, en dirección al callejón ubicado en la calle Mariana de Jesús, donde el acusado procede a golpear en la cabeza al señor Juan plaza y luego huye del lugar. 2. El agente de policía Juan Mejía realizaba patrullaje de rutina, cuando divisó a dos personas en un callejón cerca a la calle Mariana de Jesús, pero por motivos propios de su profesión, tuvo que alejarse por el lapso aproximado de 5 minutos. Al regresar al lugar pudo notar la ausencia de una persona, mientras la otra yacía en el suelo desorienta; se trataba de Juan Plaza quien procede a informar al oficial de lo sucedido, había sido golpeado y le habían sustraído 400 dólares que consistía en 4 denominaciones de 100. 3. El oficial Mejía inmediatamente procede a la búsqueda del señor José Anteparra, a quien logra capturar en un plazo no mayor a 3 minutos cuando logra aprehenderlo y procede a realizar el registro de sus pertenencias de donde pudo obtener 4 billetes con denominación de 100. 4. Inmediatamente lo trasladan al lugar de los hechos donde el afectado, el señor Juan Plaza lo identifica como su agresor.",
+                            "score": 100,
+                            "next": 11
+                        },
+                        {
+                            "text": "1.El día 17 de junio del presente año aproximadamente a las 8h00  de la mañana, el señor José Anteparra se dirigía a la parada de buses ubicada en la calle Mariana de Jesús. 2.Mientras caminaba logra visualizar a un hombre en el suelo, se le acerca para cerciorarse de su estado: pero dado que su entrada al trabajo era a las 9h00 y antes de ingresar, debía pasar por una entidad bancaria donde depositaría la cantidad de 400 dolares americanos, cantidad que su jefe el señor Juan Cueva propietario del comercial Cueva donde labora, le había encargado el día anterior,dado que al señor Cueva se le hacia imposible hacerlo por varias actividades que debía realizar fuera de la provincia.",
+                            "score": 100,
+                            "next": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "description": "¿Qué prueba aceptas?",
+                    "option": [
+                        {
+                            "text": "Testimonio de Juan Plaza, y 400 dólares",
+                            "score": 0,
+                            "next": 12
+                        },
+                        {
+                            "text": "Informe médico del traumatólogo y 500 dólares.",
+                            "score": 0,
+                            "next": 12
+                        },
+                        {
+                            "text": "Testimonio e informe médico de neurólogo y los 400 dólares con su respectiva serie.",
+                            "score": 100,
+                            "next": 12
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "description": "Te han solicitado las siguientes medidas cautelares. ¿Cuál es la más adecuada?",
+                    "option": [
+                        {
+                            "text": "FISCALIA solicita: prisión preventiva.",
+                            "score": 100,
+                            "next": 13
+                        },
+                        {
+                            "text": "DEFENSA solicita: 1.  Prohibición de ausentarse del país 2. Presentación periódica",
+                            "score": 0,
+                            "next": 14
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "description": "Escoge la sentencia correcta",
+                    "option": [
+                        {
+                            "text": "En base a lo expuesto en el  Art.-534 del Código Orgánico Integral Penal, se ha cumplido con la finalidad y requisitos para dictar prisión preventiva de acuerdo con las pruebas presentadas por fiscalía, por lo expuesto se considera que existen : 1.Elementos de convicción claros y precisos de que el procesado es autor o cómplice de la infracción. 2.Indicios de los cuales se desprende que las medidas cautelares no privativas de la libertad son insuficientes y que es necesario la prisión preventiva para asegurar su presencia en el juicio o el cumplimiento de la pena. 3.Que se trate de una infracción sancionado con pena privativa de libertad superior a un año. Cumpliendo lo antes expuesto procedo a dictar 'prisión preventiva'. Declaro concluida la audiencia",
+                            "score": 100,
+                            "next": 15
+                        },
+                        {
+                            "text": "Es necesario observar la naturaleza de la prisión preventiva como una de las medidas más graves que se pueden imponer y lo expuesto por la CIDH sobre respetar los principios de necesidad, legalidad, proporcionalidad y presunción de inocencia para poder dictar esta medida; así mismo la constitución señala a la 'libertad' como un bien jurídico protegido.\n Por tanto y en base al art. 522. del COIP incisos 1 y2, se procede a dictar las siguientes medidas cautelares:\n 1.Prohibición salida del país.\n 2.Presentación periódica cada 15 días en la oficina del Fiscal en el horario de 8 am a 5 pm.\n Declaro concluida la audiencia",
+                            "score": 0,
+                            "next": 15
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "description": "Escoge la sentencia correcta",
+                    "option": [
+                        {
+                            "text": "En base a lo expuesto en el  Art.-534 del Código Orgánico Integral Penal, se ha cumplido con la finalidad y requisitos para dictar prisión preventiva de acuerdo con las pruebas presentadas por fiscalía, por lo expuesto se considera que existen : 1.Elementos de convicción claros y precisos de que el procesado es autor o cómplice de la infracción. 2.Indicios de los cuales se desprende que las medidas cautelares no privativas de la libertad son insuficientes y que es necesario la prisión preventiva para asegurar su presencia en el juicio o el cumplimiento de la pena. 3.Que se trate de una infracción sancionado con pena privativa de libertad superior a un año. Cumpliendo lo antes expuesto procedo a dictar 'prisión preventiva'. Declaro concluida la audiencia",
+                            "score": 0,
+                            "next": 15
+                        },
+                        {
+                            "text": "Es necesario observar la naturaleza de la prisión preventiva como una de las medidas más graves que se pueden imponer y lo expuesto por la CIDH sobre respetar los principios de necesidad, legalidad, proporcionalidad y presunción de inocencia para poder dictar esta medida; así mismo la constitución señala a la 'libertad' como un bien jurídico protegido.\n Por tanto y en base al art. 522. del COIP incisos 1 y2, se procede a dictar las siguientes medidas cautelares:\n 1.Prohibición salida del país.\n 2.Presentación periódica cada 15 días en la oficina del Fiscal en el horario de 8 am a 5 pm.\n Declaro concluida la audiencia",
+                            "score": 100,
+                            "next": 15
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "score_total": 400
+                }
+            ]
+        }
+    ]
+}
