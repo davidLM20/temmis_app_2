@@ -16,21 +16,15 @@ class ChatCase extends StatefulWidget {
 class _ChatCaseState extends State<ChatCase> {
   
   List<BubbleChat> _message = <BubbleChat>[
-    BubbleChat(),
-    BubbleChat(),
-    BubbleChat()
+    BubbleChat(isMe: true,),
+    BubbleChat(isMe: true,),
+    BubbleChat(isMe: false,),
+    BubbleChat(isMe: true,),
+    BubbleChat(isMe: false,),
+    BubbleChat(isMe: false)
   ];
-  /*
-  Widget build(BuildContext context){
-    return Container(
-      child: Text(
-        'hola owo eeee aslsdaff',
-         style:TextStyle(color: Color(0xff00adb5)),
-        
-      ),
-    );
-  }
-  */
+  
+  
   // funciones
 
 
@@ -194,21 +188,27 @@ class _ChatCaseState extends State<ChatCase> {
            
            //BubbleChat(isMe: true),
            
-            Expanded(
+             Expanded(
               
               //height: double.maxFinite,
               child: Container(
+                alignment: AlignmentDirectional.topCenter,
+                //color: IndevColors.blue2,
+               
                 //width: double.infinity,
                 //child: BubbleChat(isMe: true),
-                 color: IndevColors.blue2,
+              //   child: Flexible(
+                child: ListView.builder(
+                itemCount: _message.length,
+                reverse: true,
+                itemBuilder: (_, int index) => _message[index],
+                addAutomaticKeepAlives: true,
+              ),
+              //   ),
+                 
                  
                  margin: EdgeInsets.only(bottom: 7),
-                //  child: ListView.builder(
-                //    itemCount:  _message.length,
-                //    reverse: true,
-                //    itemBuilder: (_, int index) => _message[index] ,
-                //    addAutomaticKeepAlives: true,
-                //  ),
+                //  
               ),
             ), //burbujas
             
@@ -218,11 +218,13 @@ class _ChatCaseState extends State<ChatCase> {
                 //color: Color(0xff00adb5),
                 alignment: Alignment.centerRight,
                 child: Container(
+                  
                   padding: EdgeInsets.only(
                     bottom: 7.0,
                     left: 7.0,
                     right: 7.0
                   ),
+                  
                   child: boto,
                 ),
                 //child: Container(child: Text('hola'),)
