@@ -15,36 +15,31 @@ class ChatCase extends StatefulWidget {
 
 class _ChatCaseState extends State<ChatCase> {
   List<BubbleChat> _message = <BubbleChat>[
-<<<<<<< HEAD
     BubbleChat(
       isMe: true,
+      message: "hola",
     ),
     BubbleChat(
       isMe: true,
+      message: "EL 17 de diciembre de enero",
     ),
     BubbleChat(
       isMe: false,
+      message: "Holi",
     ),
     BubbleChat(
       isMe: true,
+      message: "EL 17 de diciembre de noviembre",
     ),
     BubbleChat(
       isMe: false,
+      message: "EL 17 de diciembre de noviembre",
     ),
-    BubbleChat(isMe: false)
+    BubbleChat(
+      isMe: false,
+      message: "EL 17 de diciembre",
+    )
   ];
-=======
-    BubbleChat(isMe: true,),
-    BubbleChat(isMe: true,),
-    BubbleChat(isMe: false,),
-    BubbleChat(isMe: true,),
-    BubbleChat(isMe: false,),
-    BubbleChat(isMe: false)
-  ];
-  
-  
-  // funciones
->>>>>>> 731ec1983f6152af521162d43affe6833a6558d8
 
   // funciones
 
@@ -103,7 +98,7 @@ class _ChatCaseState extends State<ChatCase> {
   );
 
   final boto = Container(
-    padding: EdgeInsets.only(bottom: 18),
+    //padding: EdgeInsets.only(bottom: 10),
     child: Row(
       children: <Widget>[
         Spacer(),
@@ -169,60 +164,34 @@ class _ChatCaseState extends State<ChatCase> {
                 ),
               ),
             ),
-<<<<<<< HEAD
 
             //BubbleChat(isMe: true),
 
             Expanded(
-=======
-           
-           //BubbleChat(isMe: true),
-           
-             Expanded(
-              
->>>>>>> 731ec1983f6152af521162d43affe6833a6558d8
               //height: double.maxFinite,
               child: Container(
-                alignment: AlignmentDirectional.topCenter,
+                //alignment: AlignmentDirectional.topCenter,
                 //color: IndevColors.blue2,
-<<<<<<< HEAD
 
                 //width: double.infinity,
                 //child: BubbleChat(isMe: true),
                 //   child: Flexible(
-                child: ListView.builder(
-                  itemCount: _message.length,
-                  reverse: true,
-                  itemBuilder: (_, int index) => _message[index],
-                  addAutomaticKeepAlives: true,
+                child: Scaffold(
+                  body: ListView.builder(
+                    itemCount: _message.length,
+                    reverse: true,
+                    itemBuilder: (_, int index) => _message[index],
+                    //addAutomaticKeepAlives: true,
+                  ),
                 ),
-                //   ),
 
-                margin: EdgeInsets.only(bottom: 7),
+                margin: EdgeInsets.only(bottom: 10),
                 //
-=======
-               
-                //width: double.infinity,
-                //child: BubbleChat(isMe: true),
-              //   child: Flexible(
-                child: ListView.builder(
-                itemCount: _message.length,
-                reverse: true,
-                itemBuilder: (_, int index) => _message[index],
-                addAutomaticKeepAlives: true,
-              ),
-              //   ),
-                 
-                 
-                 margin: EdgeInsets.only(bottom: 7),
-                //  
->>>>>>> 731ec1983f6152af521162d43affe6833a6558d8
               ),
             ), //burbujas
 
             Container(
               //alignment: AlignmentDirectional.bottomCenter,
-<<<<<<< HEAD
               //padding: EdgeInsets.all(1.0),
               //color: Color(0xff00adb5),
               alignment: Alignment.centerRight,
@@ -231,23 +200,6 @@ class _ChatCaseState extends State<ChatCase> {
                 child: boto,
               ),
               //child: Container(child: Text('hola'),)
-=======
-                //padding: EdgeInsets.all(1.0),
-                //color: Color(0xff00adb5),
-                alignment: Alignment.centerRight,
-                child: Container(
-                  
-                  padding: EdgeInsets.only(
-                    bottom: 7.0,
-                    left: 7.0,
-                    right: 7.0
-                  ),
-                  
-                  child: boto,
-                ),
-                //child: Container(child: Text('hola'),)
-              
->>>>>>> 731ec1983f6152af521162d43affe6833a6558d8
             ),
           ],
         ),
