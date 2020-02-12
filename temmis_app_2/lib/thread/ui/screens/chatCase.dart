@@ -2,27 +2,41 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/thread/model/route.dart';
 import 'package:temmis_app_2/thread/ui/widgets/ModalBottom.dart';
 //import 'package:temmis_app_2/user/ui/widgets/back_button.dart';
 import 'package:temmis_app_2/thread/ui/widgets/bubbleChat.dart';
+import 'package:temmis_app_2/user/ui/screens/alert_screen.dart';
 //import 'package:temmis_app_2/thread/model/case.dart';
 
 class ChatCase extends StatefulWidget {
+  final Hilo hilo;
+  final String myRole;
+
   ChatCase({
     Key key,
-  });
+    @required this.hilo,
+    @required this.myRole,
+  }) : super(key: key);
   @override
   _ChatCaseState createState() => _ChatCaseState();
 }
 
 class _ChatCaseState extends State<ChatCase> {
-  // _timer() {
-  //   Timer.periodic(Duration(seconds: 5), (timer) {
-  //     print(DateTime.now());
-  //   });
-  // }
 
-  List<BubbleChat> _message = <BubbleChat>[
+  //*****Medtodo de optencion de tiempo */
+  /*_timer() {
+    Timer.periodic(Duration(seconds: 5), (timer) {
+      print(DateTime.now());
+    });
+  }*/
+
+
+  int _progress = 1, i = 1, _idRoute = 2, _selectItem;
+
+  List<BubbleChat> _message = <BubbleChat>[];
+
+  List<BubbleChat> _message2 = <BubbleChat>[
     BubbleChat(
       isMe: true,
       message: "hola",
@@ -49,104 +63,65 @@ class _ChatCaseState extends State<ChatCase> {
     )
   ];
 
+  _timer() {
+    Timer.periodic(Duration(seconds: 5), (timer) {
+      print(DateTime.now());
+    });
+  }
+
+  void _selectEvent() async {
+    print("hilo:  $_message");
+
+    //Recopila el id del hilo seleccionado
+    final tempId = widget.hilo.route[this._idRoute].event
+        .indexWhere((event) => event.id == this.i);
+
+    //Imprime el rol del chat
+    print("role: ${widget.hilo.route[this._idRoute].event[tempId].role}");
+    this.i = widget.hilo.route[this._idRoute].event[tempId].next;
+    _printMensaje(
+        widget.hilo.route[this._idRoute].event[tempId].text,
+        widget.hilo.route[this._idRoute].event[tempId].role,
+        _isMe(widget.hilo.route[this._idRoute].event[tempId].role));
+  }
+
   // funciones
+  void _printMensaje(String tempText, String tempRole, bool isMe) {
+    BubbleChat message = new BubbleChat(
+      message: tempText,
+      isMe: isMe,
+    );
+    setState(() {
+      _message.insert(0, message);
+    });
+  }
 
-  final topo = Container(
-    alignment: Alignment.center,
-    margin: EdgeInsets.only(left: 10.0),
-    padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
-    child: Row(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.all(8.0),
-          child: BackButtonIcon(),
-        ),
-        Container(
-          width: 40.0,
-          height: 40.0,
-          decoration: BoxDecoration(
-            color: IndevColors.blue,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-          padding: EdgeInsets.all(9),
-        ),
-        Container(
-          //alignment: Alignment.bottomLeft,
-          padding: EdgeInsets.only(left: 10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              RichText(
-                text: TextSpan(
-                  text: "Audiencia 1",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xDD000000),
-                      fontSize: 15.0,
-                      letterSpacing: 1,
-                      wordSpacing: 1),
-                ),
-              ),
-              //Spacer(flex: 1,),
-              RichText(
-                text: TextSpan(
-                  text: "Online...  ",
-                  style: TextStyle(
-                      color: Color(0xDD000000),
-                      fontSize: 15.0,
-                      letterSpacing: 1,
-                      wordSpacing: 1),
-                ),
-              ),
-            ],
-          ),
-        ), //texto
-      ],
-    ),
-  );
+  bool _isMe(String role) {
+    if (widget.myRole == role) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  final boto = Container(
-    //padding: EdgeInsets.only(bottom: 10),
-    child: Row(
-      children: <Widget>[
-        Spacer(),
-        Container(
-          padding: EdgeInsets.all(4.0),
-          width: 55.0,
-          height: 55.0,
-          decoration: BoxDecoration(
-              color: Color(0xFFF1F1F1),
-              borderRadius: BorderRadius.all(Radius.circular(50))),
-          child: Icon(Icons.people, color: IndevColors.black),
-        ),
-        Spacer(),
-        Container(
-          padding: EdgeInsets.all(4.0),
-          width: 260.0,
-          height: 55.0,
-          decoration: BoxDecoration(
-              color: Color(0xFFF1F1F1),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: ModalBottom1(),
-        ),
-        Spacer(),
-        Container(
-            padding: EdgeInsets.all(4.0),
-            width: 55.0,
-            height: 55.0,
-            decoration: BoxDecoration(
-                color: Color(0xFFF1F1F1),
-                borderRadius: BorderRadius.all(Radius.circular(15))),
-            child: Center(
-              child: Icon(Icons.send, color: IndevColors.black),
-            )),
-        Spacer(),
-      ],
-    ),
-  );
+  int _selectRole() {
+    return widget.hilo.route.indexWhere((route) => route.role == widget.myRole);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this._idRoute = _selectRole();
+  }
+
+  // final topo = ;
+
+  //final boto = ;
 
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+        body: Container(
       color: IndevColors.gold,
       child: Container(
         margin: EdgeInsets.only(top: 30),
@@ -166,7 +141,64 @@ class _ChatCaseState extends State<ChatCase> {
                 padding: EdgeInsets.all(10.0),
                 child: SizedBox(
                   width: double.infinity,
-                  child: topo
+                  // parte superior de la pantalla inclullendo el
+                  child: Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(8.0),
+                          child: BackButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: IndevColors.blue,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          padding: EdgeInsets.all(9),
+                        ),
+                        Container(
+                          //alignment: Alignment.bottomLeft,
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              RichText(
+                                text: TextSpan(
+                                  text: "Audiencia 1",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xDD000000),
+                                      fontSize: 15.0,
+                                      letterSpacing: 1,
+                                      wordSpacing: 1),
+                                ),
+                              ),
+                              //Spacer(flex: 1,),
+                              RichText(
+                                text: TextSpan(
+                                  text: "Online...  ",
+                                  style: TextStyle(
+                                      color: Color(0xDD000000),
+                                      fontSize: 15.0,
+                                      letterSpacing: 1,
+                                      wordSpacing: 1),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ), //texto
+                      ],
+                    ),
+                  )
                   //color: IndevColors.blue,
                   ,
                 ),
@@ -197,23 +229,97 @@ class _ChatCaseState extends State<ChatCase> {
                 //
               ),
             ), //burbujas
-            // Container(
-            //   child: _timer(),
-            // ),
+
+            //**********metodo de obtencion de hora*/
+            /*Container(
+              child: _timer(),
+            ),*/
             Container(
               //alignment: AlignmentDirectional.bottomCenter,
               //padding: EdgeInsets.all(1.0),
               //color: Color(0xff00adb5),
               alignment: Alignment.centerRight,
               child: Container(
-                padding: EdgeInsets.only(bottom: 7.0, left: 7.0, right: 7.0),
-                child: boto,
-              ),
-              
+                  padding: EdgeInsets.only(bottom: 7.0, left: 7.0, right: 7.0),
+                  child: Container(
+                      //padding: EdgeInsets.only(bottom: 10),
+                      child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.all(4.0),
+                            width: 55.0,
+                            height: 55.0,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF1F1F1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50))),
+                            child: Icon(Icons.people, color: IndevColors.black),
+                          ),
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.all(4.0),
+                            width: 260.0,
+                            height: 55.0,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF1F1F1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: ModalBottom1(),
+                          ),
+                          Spacer(),
+                          Container(
+                              padding: EdgeInsets.all(4.0),
+                              width: 55.0,
+                              height: 55.0,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF1F1F1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15))),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) {
+                                      return Overlay(
+                                        initialEntries: [
+                                          OverlayEntry(builder: (context) {
+                                            return AlertScreen();
+                                          }),
+                                        ],
+                                      );
+                                    }));
+                                  },
+                                  child: Center(
+                                    child: Icon(Icons.send,
+                                        color: IndevColors.black),
+                                  ))),
+                          Spacer(),
+                          
+                        ],
+                      ),
+                      FlatButton(
+                            textColor: Color(0xff00adb5),
+                            onPressed: () => _selectEvent(),
+                            child: Text(
+                              "SIGUIENTE",
+                              style: const TextStyle(
+                                color: Color(0xff00adb5),
+                                fontFamily: "Comfortaa",
+                                fontStyle: FontStyle.normal,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ),
+                    ],
+                  ))),
+              //child: Container(child: Text('hola'),)
+
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
