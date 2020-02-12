@@ -77,6 +77,7 @@ class RoleCard extends StatelessWidget {
     );
 
     return InkWell(
+
       child: card_rol,
       onTap: () {
         api.getHilo().then((resp) {
@@ -94,6 +95,7 @@ class RoleCard extends StatelessWidget {
         });
       },
     );
+
   }
 
   Color _selectColor(String rol) {
