@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:temmis_app_2/thread/ui/screens/chatCase.dart';
 import 'package:temmis_app_2/user/ui/screens/role_screen.dart';
 
 class RoleCard extends StatelessWidget {
@@ -84,7 +85,7 @@ class RoleCard extends StatelessWidget {
       child: card_rol,
       onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SelectRol()));
+              context, MaterialPageRoute(builder: (context) => ChatCase()));
         },
     );
   }
