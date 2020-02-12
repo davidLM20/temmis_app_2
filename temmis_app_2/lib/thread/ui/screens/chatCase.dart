@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/thread/ui/widgets/ModalBottom.dart';
@@ -14,6 +16,12 @@ class ChatCase extends StatefulWidget {
 }
 
 class _ChatCaseState extends State<ChatCase> {
+  _timer() {
+    Timer.periodic(Duration(seconds: 5), (timer) {
+      print(DateTime.now());
+    });
+  }
+
   List<BubbleChat> _message = <BubbleChat>[
     BubbleChat(
       isMe: true,
@@ -189,7 +197,9 @@ class _ChatCaseState extends State<ChatCase> {
                 //
               ),
             ), //burbujas
-
+            Container(
+              child: _timer(),
+            ),
             Container(
               //alignment: AlignmentDirectional.bottomCenter,
               //padding: EdgeInsets.all(1.0),
