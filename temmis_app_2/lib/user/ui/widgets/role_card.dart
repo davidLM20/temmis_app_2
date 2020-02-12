@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:temmis_app_2/thread/model/route.dart';
+import 'package:temmis_app_2/thread/repository/routeData.dart';
 import 'package:temmis_app_2/thread/ui/screens/chatCase.dart';
-import 'package:temmis_app_2/user/ui/screens/role_screen.dart';
 
 class RoleCard extends StatelessWidget {
   String txt_role;
   String txt_description;
   String funtion_rol;
   String rol_icon;
+  Hilo hilo;
+  final RouteData api = new RouteData('assets/case1.json');
 
   RoleCard(
       this.txt_role, this.txt_description, this.funtion_rol, this.rol_icon);
@@ -74,11 +77,25 @@ class RoleCard extends StatelessWidget {
     );
 
     return InkWell(
-        child: card_rol,
-        onTap: () {
+
+      child: card_rol,
+      onTap: () {
+        api.getHilo().then((resp) {
+          this.hilo = resp;
+        }).catchError((err) {
+          print("caught $err");
+        }).whenComplete(() {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ChatCase()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ChatCase(
+                        hilo: this.hilo,
+                        myRole: "Juez",
+                      )));
         });
+      },
+    );
+
   }
 
   Color _selectColor(String rol) {

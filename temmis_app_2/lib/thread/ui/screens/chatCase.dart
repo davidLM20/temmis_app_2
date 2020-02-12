@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/thread/model/route.dart';
 import 'package:temmis_app_2/thread/ui/widgets/ModalBottom.dart';
 //import 'package:temmis_app_2/user/ui/widgets/back_button.dart';
 import 'package:temmis_app_2/thread/ui/widgets/bubbleChat.dart';
@@ -9,14 +10,20 @@ import 'package:temmis_app_2/user/ui/screens/alert_screen.dart';
 //import 'package:temmis_app_2/thread/model/case.dart';
 
 class ChatCase extends StatefulWidget {
+  final Hilo hilo;
+  final String myRole;
+
   ChatCase({
     Key key,
-  });
+    @required this.hilo,
+    @required this.myRole,
+  }) : super(key: key);
   @override
   _ChatCaseState createState() => _ChatCaseState();
 }
 
 class _ChatCaseState extends State<ChatCase> {
+
   //*****Medtodo de optencion de tiempo */
   /*_timer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
@@ -24,7 +31,12 @@ class _ChatCaseState extends State<ChatCase> {
     });
   }*/
 
-  List<BubbleChat> _message = <BubbleChat>[
+  int _progress = 1, i = 1, _idRoute = 2, _selectItem;
+
+  List<BubbleChat> _message = <BubbleChat>[];
+
+
+  List<BubbleChat> _message2 = <BubbleChat>[
     BubbleChat(
       isMe: true,
       message: "hola",
@@ -51,7 +63,57 @@ class _ChatCaseState extends State<ChatCase> {
     )
   ];
 
+  _timer() {
+    Timer.periodic(Duration(seconds: 5), (timer) {
+      print(DateTime.now());
+    });
+  }
+
+  void _selectEvent() async {
+    print("hilo:  $_message");
+
+    //Recopila el id del hilo seleccionado
+    final tempId = widget.hilo.route[this._idRoute].event
+        .indexWhere((event) => event.id == this.i);
+        
+    //Imprime el rol del chat
+    print("role: ${widget.hilo.route[this._idRoute].event[tempId].role}");
+    this.i = widget.hilo.route[this._idRoute].event[tempId].next;
+    _printMensaje(
+        widget.hilo.route[this._idRoute].event[tempId].text,
+        widget.hilo.route[this._idRoute].event[tempId].role,
+        _isMe(widget.hilo.route[this._idRoute].event[tempId].role));
+  }
+
   // funciones
+  void _printMensaje(String tempText, String tempRole, bool isMe) {
+    BubbleChat message = new BubbleChat(
+      message: tempText,
+      isMe: isMe,
+    );
+    setState(() {
+      _message.insert(0, message);
+    });
+  }
+
+  bool _isMe(String role) {
+    if (widget.myRole == role) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  int _selectRole() {
+    return widget.hilo.route.indexWhere((route) => route.role == widget.myRole);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this._idRoute = _selectRole();
+  }
 
   // final topo = ;
 
@@ -233,6 +295,22 @@ class _ChatCaseState extends State<ChatCase> {
                       Spacer(),
                     ],
                   ),
+                child: Column(
+                  children: <Widget>[              
+                    FlatButton(
+                      textColor: Color(0xff00adb5),
+                      onPressed: () => _selectEvent(),
+                      child: Text(
+                        "SIGUIENTE",
+                        style: const TextStyle(
+                          color: Color(0xff00adb5),
+                          fontFamily: "Comfortaa",
+                          fontStyle: FontStyle.normal,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               //child: Container(child: Text('hola'),)

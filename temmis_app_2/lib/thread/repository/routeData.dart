@@ -8,8 +8,8 @@ class RouteData {
   RouteData(this.baseUrl);
 
   //recupera la informacion de la ruta
-  Future<Route> getHilo() async {
-    Route _route;
+  Future<Hilo> getHilo() async {
+    Hilo _route;
     _route = routeFromJson(await rootBundle.loadString(baseUrl));
     return _route;
   }
