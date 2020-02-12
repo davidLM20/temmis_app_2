@@ -23,7 +23,6 @@ class ChatCase extends StatefulWidget {
 }
 
 class _ChatCaseState extends State<ChatCase> {
-
   //*****Medtodo de optencion de tiempo */
   /*_timer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
@@ -34,7 +33,6 @@ class _ChatCaseState extends State<ChatCase> {
   int _progress = 1, i = 1, _idRoute = 2, _selectItem;
 
   List<BubbleChat> _message = <BubbleChat>[];
-
 
   List<BubbleChat> _message2 = <BubbleChat>[
     BubbleChat(
@@ -75,7 +73,7 @@ class _ChatCaseState extends State<ChatCase> {
     //Recopila el id del hilo seleccionado
     final tempId = widget.hilo.route[this._idRoute].event
         .indexWhere((event) => event.id == this.i);
-        
+
     //Imprime el rol del chat
     print("role: ${widget.hilo.route[this._idRoute].event[tempId].role}");
     this.i = widget.hilo.route[this._idRoute].event[tempId].next;
@@ -121,7 +119,7 @@ class _ChatCaseState extends State<ChatCase> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
+        body: Container(
       color: IndevColors.gold,
       child: Container(
         margin: EdgeInsets.only(top: 30),
@@ -239,80 +237,80 @@ class _ChatCaseState extends State<ChatCase> {
               //color: Color(0xff00adb5),
               alignment: Alignment.centerRight,
               child: Container(
-                padding: EdgeInsets.only(bottom: 7.0, left: 7.0, right: 7.0),
-                child: Container(
-                  //padding: EdgeInsets.only(bottom: 10),
-                  child: Row(
+                  padding: EdgeInsets.only(bottom: 7.0, left: 7.0, right: 7.0),
+                  child: Container(
+                      //padding: EdgeInsets.only(bottom: 10),
+                      child: Column(
                     children: <Widget>[
-                      Spacer(),
-                      Container(
-                        padding: EdgeInsets.all(4.0),
-                        width: 55.0,
-                        height: 55.0,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF1F1F1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(50))),
-                        child: Icon(Icons.people, color: IndevColors.black),
+                      Row(
+                        children: <Widget>[
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.all(4.0),
+                            width: 55.0,
+                            height: 55.0,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF1F1F1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50))),
+                            child: Icon(Icons.people, color: IndevColors.black),
+                          ),
+                          Spacer(),
+                          Container(
+                            padding: EdgeInsets.all(4.0),
+                            width: 260.0,
+                            height: 55.0,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF1F1F1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: ModalBottom1(),
+                          ),
+                          Spacer(),
+                          Container(
+                              padding: EdgeInsets.all(4.0),
+                              width: 55.0,
+                              height: 55.0,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF1F1F1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15))),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) {
+                                      return Overlay(
+                                        initialEntries: [
+                                          OverlayEntry(builder: (context) {
+                                            return AlertScreen();
+                                          }),
+                                        ],
+                                      );
+                                    }));
+                                  },
+                                  child: Center(
+                                    child: Icon(Icons.send,
+                                        color: IndevColors.black),
+                                  ))),
+                          Spacer(),
+                          
+                        ],
                       ),
-                      Spacer(),
-                      Container(
-                        padding: EdgeInsets.all(4.0),
-                        width: 260.0,
-                        height: 55.0,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF1F1F1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: ModalBottom1(),
-                      ),
-                      Spacer(),
-                      Container(
-                          padding: EdgeInsets.all(4.0),
-                          width: 55.0,
-                          height: 55.0,
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF1F1F1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15))),
-                          child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (context) {
-                                  return Overlay(
-                                    initialEntries: [
-                                      OverlayEntry(builder: (context) {
-                                        return AlertScreen();
-                                      }),
-                                    ],
-                                  );
-                                }));
-                              },
-                              child: Center(
-                                child:
-                                    Icon(Icons.send, color: IndevColors.black),
-                              ))),
-                      Spacer(),
+                      FlatButton(
+                            textColor: Color(0xff00adb5),
+                            onPressed: () => _selectEvent(),
+                            child: Text(
+                              "SIGUIENTE",
+                              style: const TextStyle(
+                                color: Color(0xff00adb5),
+                                fontFamily: "Comfortaa",
+                                fontStyle: FontStyle.normal,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ),
                     ],
-                  ),
-                child: Column(
-                  children: <Widget>[              
-                    FlatButton(
-                      textColor: Color(0xff00adb5),
-                      onPressed: () => _selectEvent(),
-                      child: Text(
-                        "SIGUIENTE",
-                        style: const TextStyle(
-                          color: Color(0xff00adb5),
-                          fontFamily: "Comfortaa",
-                          fontStyle: FontStyle.normal,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  ))),
               //child: Container(child: Text('hola'),)
             ),
           ],
