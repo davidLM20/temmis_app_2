@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Schyler',
         primarySwatch: Colors.blue,
       ),
+
+      //home: SelectCase(),
+      //home: ChatCase(storage: CounterStorage()),
+
       home: SelectCase(),
     );
   }
