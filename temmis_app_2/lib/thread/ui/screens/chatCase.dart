@@ -16,11 +16,11 @@ class ChatCase extends StatefulWidget {
 }
 
 class _ChatCaseState extends State<ChatCase> {
-  _timer() {
-    Timer.periodic(Duration(seconds: 5), (timer) {
-      print(DateTime.now());
-    });
-  }
+  // _timer() {
+  //   Timer.periodic(Duration(seconds: 5), (timer) {
+  //     print(DateTime.now());
+  //   });
+  // }
 
   List<BubbleChat> _message = <BubbleChat>[
     BubbleChat(
@@ -197,9 +197,9 @@ class _ChatCaseState extends State<ChatCase> {
                 //
               ),
             ), //burbujas
-            Container(
-              child: _timer(),
-            ),
+            // Container(
+            //   child: _timer(),
+            // ),
             Container(
               //alignment: AlignmentDirectional.bottomCenter,
               //padding: EdgeInsets.all(1.0),
@@ -209,7 +209,7 @@ class _ChatCaseState extends State<ChatCase> {
                 padding: EdgeInsets.only(bottom: 7.0, left: 7.0, right: 7.0),
                 child: boto,
               ),
-              //child: Container(child: Text('hola'),)
+              
             ),
           ],
         ),
