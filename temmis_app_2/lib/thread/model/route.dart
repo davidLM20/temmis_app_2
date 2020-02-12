@@ -4,20 +4,20 @@
 
 import 'dart:convert';
 
-Route routeFromJson(String str) => Route.fromJson(json.decode(str));
+Hilo routeFromJson(String str) => Hilo.fromJson(json.decode(str));
 
-String routeToJson(Route data) => json.encode(data.toJson());
+String routeToJson(Hilo data) => json.encode(data.toJson());
 
-class Route {
+class Hilo {
     String description;
     List<RouteElement> route;
 
-    Route({
+    Hilo({
         this.description,
         this.route,
     });
 
-    factory Route.fromJson(Map<String, dynamic> json) => Route(
+    factory Hilo.fromJson(Map<String, dynamic> json) => Hilo(
         description: json["description"],
         route: List<RouteElement>.from(json["route"].map((x) => RouteElement.fromJson(x))),
     );
