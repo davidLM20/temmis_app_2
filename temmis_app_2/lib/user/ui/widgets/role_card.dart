@@ -96,7 +96,7 @@ class RoleCard extends StatelessWidget {
         color = IndevColors.pink;
         break;
       case "2":
-        color = IndevColors.lila;
+        color = IndevColors.white;
         break;
       case "3":
         color = IndevColors.blue;
