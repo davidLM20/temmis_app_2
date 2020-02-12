@@ -23,12 +23,14 @@ class ChatCase extends StatefulWidget {
 }
 
 class _ChatCaseState extends State<ChatCase> {
+
   //*****Medtodo de optencion de tiempo */
   /*_timer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
       print(DateTime.now());
     });
   }*/
+
 
   int _progress = 1, i = 1, _idRoute = 2, _selectItem;
 
@@ -227,6 +229,7 @@ class _ChatCaseState extends State<ChatCase> {
                 //
               ),
             ), //burbujas
+
             //**********metodo de obtencion de hora*/
             /*Container(
               child: _timer(),
@@ -312,6 +315,7 @@ class _ChatCaseState extends State<ChatCase> {
                     ],
                   ))),
               //child: Container(child: Text('hola'),)
+
             ),
           ],
         ),
