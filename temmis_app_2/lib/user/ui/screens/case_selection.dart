@@ -83,7 +83,8 @@ class _SelectCaseState extends State<SelectCase> {
                       ]),
                 ),
               ),
-              Center(
+              CardList(),
+              /*Center(
                 child: InkWell(
                   child: Container(
                     child: CardList(),
@@ -92,7 +93,7 @@ class _SelectCaseState extends State<SelectCase> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRol()));
                   },
                 )
-              ),
+              ),*/
             ]
             ),
           ),

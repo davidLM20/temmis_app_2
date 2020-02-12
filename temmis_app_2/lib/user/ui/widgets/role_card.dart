@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:temmis_app_2/user/ui/screens/role_screen.dart';
 
 class RoleCard extends StatelessWidget {
 
@@ -63,7 +64,7 @@ class RoleCard extends StatelessWidget {
       ],),
     );
 
-    return Container(
+    final card_rol =Container(
       height: SizeConfig.blockSizeVertical*12,
       width: 320.0,
       margin: EdgeInsets.only(left: 20.0, right: 20.0, top: SizeConfig.blockSizeVertical*3),
@@ -77,6 +78,14 @@ class RoleCard extends StatelessWidget {
           text_role
         ],
       ),
+    );
+
+    return InkWell(
+      child: card_rol,
+      onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SelectRol()));
+        },
     );
   }
 
