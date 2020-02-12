@@ -35,7 +35,7 @@ class ModalBottom1 extends StatelessWidget {
       //   color: Colors.white,
       //   fontWeight: FontWeight.w600,
       // ),
-      child: Text('seleccione una respuesta'),
+      child: Text('Seleccione una respuesta'),
     );
   }
 }
