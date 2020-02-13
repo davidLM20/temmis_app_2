@@ -53,29 +53,30 @@ class SelectRol extends StatelessWidget {
       ),
     );
 
-    return Scaffold(
+    return SafeArea(
+        child: Scaffold(
       body: Container(
           color: IndevColors.gold,
           child: Column(
             children: <Widget>[
-              Container(
-                  height: SizeConfig.blockSizeVertical * 100,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.0),
-                          bottomLeft: Radius.circular(30.0))),
-                  margin:
-                      EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 6),
-                  child: Column(
-                    children: <Widget>[
-                      back_button_role,
-                      txt_chargues,
-                      ListRol(),
-                    ],
-                  ))
+              Expanded(
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30.0),
+                              bottomLeft: Radius.circular(30.0))),
+                      margin: EdgeInsets.only(
+                          left: SizeConfig.blockSizeHorizontal * 6),
+                      child: Column(
+                        children: <Widget>[
+                          back_button_role,
+                          txt_chargues,
+                          ListRol(),
+                        ],
+                      )))
             ],
           )),
-    );
+    ));
   }
 }
