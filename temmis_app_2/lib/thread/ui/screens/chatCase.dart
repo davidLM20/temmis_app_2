@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
 import 'package:temmis_app_2/resousers/size_conifg.dart';
 import 'package:temmis_app_2/thread/model/route.dart';
@@ -22,7 +23,7 @@ class ChatCase extends StatefulWidget {
     @required this.myRole,
   }) : super(key: key);
   @override
-  _ChatCaseState createState() => _ChatCaseState();
+  _ChatCaseState createState() => _ChatCaseState("4");
 }
 
 class _ChatCaseState extends State<ChatCase> {
@@ -32,10 +33,13 @@ class _ChatCaseState extends State<ChatCase> {
       print(DateTime.now());
     });
   }*/
+  final String avatarRol;
 
   int _progress = 1, i = 1, _idRoute = 2, _selectItem;
 
   List<BubbleChat> _message = <BubbleChat>[];
+
+  _ChatCaseState(this.avatarRol);
 
   /*_timer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
@@ -89,7 +93,7 @@ class _ChatCaseState extends State<ChatCase> {
     this._idRoute = _selectRole();
   }
 
- 
+  
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,13 +133,14 @@ class _ChatCaseState extends State<ChatCase> {
                           ),
                         ),
                         Container(
-                          width: 40.0,
-                          height: 40.0,
+                          width: SizeConfig.blockSizeHorizontal*12,
+                          height: SizeConfig.blockSizeVertical*6,
                           decoration: BoxDecoration(
                             color: IndevColors.blue,
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                           padding: EdgeInsets.all(9),
+                          child: _avatar(avatarRol),
                         ),
                         Container(
                           //alignment: Alignment.bottomLeft,
@@ -284,7 +289,47 @@ class _ChatCaseState extends State<ChatCase> {
     ));
   }
   
-
+Widget _avatar(String role) {
+    return Container(
+        width: SizeConfig.blockSizeVertical*8,
+        height:SizeConfig.blockSizeVertical*8,
+        decoration: BoxDecoration(
+          color: IndevColors.blue,
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        padding: EdgeInsets.all(2),
+        child: _selectAvatar(role,
+            height: SizeConfig.blockSizeVertical * 100,
+            width: SizeConfig.blockSizeHorizontal * 100));
+  }
+  SvgPicture _selectAvatar(String iconRol,
+      {Color color, double height, double width}) {
+    var icon;
+    switch (iconRol.toLowerCase()) {
+      case "4":
+        icon = SvgPicture.asset(
+          "assets/img/caso.svg",
+          height: 100,
+          width: 100,
+        );
+        break;
+      case "5":
+        icon = SvgPicture.asset(
+          "assets/img/criminal.svg",
+          height: 100,
+          width: 100,
+        );
+        break;
+      case "6":
+        icon = SvgPicture.asset(
+          "assets/img/ley.svg",
+          height: 100,
+          width: 100,
+        );
+        break;
+    }
+    return icon;
+  }
   void _showDialogFlash() {
     FlashHelper.simpleDialog(context,
         title: 'Felicitaciones!',
