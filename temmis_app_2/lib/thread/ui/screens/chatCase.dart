@@ -289,8 +289,8 @@ class _ChatCaseState extends State<ChatCase> {
                               Spacer(),
                               Container(
                                 padding: EdgeInsets.all(4.0),
-                                width: 260.0,
-                                height: 55.0,
+                                width: SizeConfig.blockSizeHorizontal*55,
+                                height: SizeConfig.blockSizeVertical*10,
                                 decoration: BoxDecoration(
                                     color: Color(0xFFF1F1F1),
                                     borderRadius:
@@ -311,8 +311,8 @@ class _ChatCaseState extends State<ChatCase> {
                               // boton de enviar
                               Container(
                                   padding: EdgeInsets.all(4.0),
-                                  width: 55.0,
-                                  height: 55.0,
+                                  width: SizeConfig.blockSizeHorizontal*15,
+                                  height: SizeConfig.blockSizeVertical*10,
                                   decoration: BoxDecoration(
                                       color: Color(0xFFF1F1F1),
                                       borderRadius: BorderRadius.all(
