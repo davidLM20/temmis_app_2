@@ -18,11 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Schyler',
         primarySwatch: Colors.blue,
       ),
-      home:ChatCase(),
-      //home: SelectCase(),
-      //home: ChatCase(storage: CounterStorage()),
-
-      //home: SelectCase(),
+      home: SelectCase(),
     );
   }
 }
