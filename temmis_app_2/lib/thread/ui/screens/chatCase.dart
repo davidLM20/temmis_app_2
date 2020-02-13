@@ -430,12 +430,12 @@ class _ChatCaseState extends State<ChatCase> {
         message: '⚡️Has impartido Justica',
         negativeAction: Text(
           'Nuevo Rol',
-          style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 4),
+          style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.5),
         ),
         onNegativeActionTap: (controller) => SelectCase(),
         positiveAction: Text(
           'Menú',
-          style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 4),
+          style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.5),
         ),
         positiveActionTap: (controller) => controller.dismiss());
   }
@@ -466,7 +466,7 @@ class SelectOption extends StatelessWidget {
           onTap: () {
             onChangeDate(next);
             onChangeText(message);
-            print("joder $next");
+            print("siguiente $next");
           },
           child: Container(
             padding: EdgeInsets.all(20.0),
