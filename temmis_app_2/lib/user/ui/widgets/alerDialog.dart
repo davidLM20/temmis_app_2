@@ -3,8 +3,14 @@ import 'dart:async';
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/resousers/size_conifg.dart';
+import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
+import 'package:temmis_app_2/user/ui/screens/role_screen.dart';
 
 class FlashHelper {
+  SizeConfig sizeConfig = new SizeConfig();
+
   static Completer<BuildContext> _buildCompleter = Completer<BuildContext>();
 
   static void init(BuildContext context) {
@@ -191,32 +197,86 @@ class FlashHelper {
       persistent: false,
       builder: (_, controller) {
         return Flash.dialog(
-          controller: controller,
-          backgroundColor: _backgroundColor(context),
-          margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          child: FlashBar(
-            title:
-                title == null ? null : Text(title, style: _titleStyle(context)),
-            message: Text(message, style: _contentStyle(context)),
-            actions: <Widget>[
-              if (negativeAction != null)
-                FlatButton(
-                  child: negativeAction,
-                  onPressed: onNegativeActionTap == null
-                      ? null
-                      : () => onNegativeActionTap(controller),
-                ),
-              if (positiveAction != null)
-                FlatButton(
-                  child: positiveAction,
-                  onPressed: positiveActionTap == null
-                      ? null
-                      : () => positiveActionTap(controller),
-                ),
-            ],
-          ),
-        );
+            controller: controller,
+            backgroundColor: _backgroundColor(context),
+            margin: EdgeInsets.only(
+                left: SizeConfig.blockSizeHorizontal * 13,
+                right: SizeConfig.blockSizeHorizontal * 13,
+                top: SizeConfig.blockSizeVertical * 18,
+                bottom: SizeConfig.blockSizeVertical * 20),
+            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+            child: Container(
+                height: SizeConfig.blockSizeVertical * 80,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        width: SizeConfig.blockSizeVertical * 1.2,
+                        color: IndevColors.gold)),
+                child: Column(
+                  children: <Widget>[
+                    FlashBar(
+                      padding: EdgeInsets.all(SizeConfig.blockSizeVertical * 6),
+                      title: title == null
+                          ? null
+                          : Text(
+                              title,
+                              style: _titleStyle(
+                                context,
+                              ),
+                            ),
+                      message: Text(message, style: _contentStyle(context)),
+                      actions: <Widget>[
+                        Container(
+                            height: SizeConfig.blockSizeVertical * 35,
+                            width: SizeConfig.blockSizeHorizontal * 50,
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(
+                                right: SizeConfig.blockSizeHorizontal * 16,
+                                left: SizeConfig.blockSizeHorizontal * 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Icon(
+                                    Icons.tag_faces,
+                                    size: SizeConfig.blockSizeVertical * 20,
+                                    color: IndevColors.blue,
+                                  ),
+                                ),
+                                Spacer(),
+                                Container(
+                                  height: SizeConfig.blockSizeVertical * 14.2,
+                                  child: Column(
+                                    children: <Widget>[
+                                      if (negativeAction != null)
+                                        FlatButton(
+                                            child: negativeAction,
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SelectRol()));
+                                            }),
+                                      if (positiveAction != null)
+                                        FlatButton(
+                                            child: positiveAction,
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SelectCase()));
+                                            }),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ))
+                      ],
+                    ),
+                  ],
+                )));
       },
     );
   }
