@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/resousers/size_conifg.dart';
 
 class BubbleChat extends StatelessWidget {
   final bool isMe;
@@ -41,7 +43,9 @@ class BubbleChat extends StatelessWidget {
                               : Container(
                                   child: Padding(
                                     padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
-                                    child: _avatar('defensa'),
+                                    child: _avatar(
+                                      'juez',
+                                    ),
                                   ),
                                   //     child: Align(
                                   //   alignment: Alignment.bottomLeft,
@@ -102,34 +106,39 @@ class BubbleChat extends StatelessWidget {
 
   Widget _avatar(String role) {
     return Container(
-      width: 30.0,
-      height: 30.0,
-      decoration: BoxDecoration(
-        color: IndevColors.blue,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      padding: EdgeInsets.all(9),
-    );
+        width: SizeConfig.blockSizeVertical*5,
+        height:SizeConfig.blockSizeVertical*5,
+        decoration: BoxDecoration(
+          color: IndevColors.blue,
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        padding: EdgeInsets.all(9),
+        child: _selectAvatar(role,
+            height: SizeConfig.blockSizeVertical * 100,
+            width: SizeConfig.blockSizeHorizontal * 100));
   }
 
-  String _selectAvatar(String role) {
-    String _avatar;
-
-    switch (role.toLowerCase()) {
-      case "fiscalía":
-        _avatar = "https://i.pravatar.cc/150?img=59";
-        break;
+  SvgPicture _selectAvatar(String iconRol,
+      {Color color, double height, double width}) {
+    var icon;
+    switch (iconRol.toLowerCase()) {
       case "juez":
-        _avatar = "https://i.pravatar.cc/150?img=26";
+        icon = SvgPicture.asset(
+          "assets/img/juez_color.svg",
+        );
         break;
-      case "secretaria":
-        _avatar = "https://i.pravatar.cc/150?img=32";
+      case "5":
+        icon = SvgPicture.asset(
+          "assets/img/fiscalia_color.svg",
+        );
         break;
       case "defensa":
-        _avatar = "https://i.pravatar.cc/150?img=61";
+        icon = SvgPicture.asset(
+          "assets/img/abogado_color.svg",
+        );
         break;
     }
-    return _avatar;
+    return icon;
   }
 
   Color _selectColor(String role) {

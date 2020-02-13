@@ -2,11 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:temmis_app_2/resousers/colors.dart';
+import 'package:temmis_app_2/resousers/size_conifg.dart';
 import 'package:temmis_app_2/thread/model/route.dart';
 import 'package:temmis_app_2/thread/ui/widgets/ModalBottom.dart';
 //import 'package:temmis_app_2/user/ui/widgets/back_button.dart';
 import 'package:temmis_app_2/thread/ui/widgets/bubbleChat.dart';
 import 'package:temmis_app_2/user/ui/screens/alert_screen.dart';
+import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
+import 'package:temmis_app_2/user/ui/widgets/alerDialog.dart';
 //import 'package:temmis_app_2/thread/model/case.dart';
 
 class ChatCase extends StatefulWidget {
@@ -34,38 +37,11 @@ class _ChatCaseState extends State<ChatCase> {
 
   List<BubbleChat> _message = <BubbleChat>[];
 
-  List<BubbleChat> _message2 = <BubbleChat>[
-    BubbleChat(
-      isMe: true,
-      message: "hola",
-    ),
-    BubbleChat(
-      isMe: true,
-      message: "EL 17 de diciembre de enero",
-    ),
-    BubbleChat(
-      isMe: false,
-      message: "Holi",
-    ),
-    BubbleChat(
-      isMe: true,
-      message: "EL 17 de diciembre de noviembre",
-    ),
-    BubbleChat(
-      isMe: false,
-      message: "EL 17 de diciembre de noviembre",
-    ),
-    BubbleChat(
-      isMe: false,
-      message: "EL 17 de diciembre",
-    )
-  ];
-
-  _timer() {
+  /*_timer() {
     Timer.periodic(Duration(seconds: 5), (timer) {
       print(DateTime.now());
     });
-  }
+  }*/
 
   void _selectEvent() async {
     print("hilo:  $_message");
@@ -113,9 +89,7 @@ class _ChatCaseState extends State<ChatCase> {
     this._idRoute = _selectRole();
   }
 
-  // final topo = ;
-
-  //final boto = ;
+ 
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,7 +113,7 @@ class _ChatCaseState extends State<ChatCase> {
                 padding: EdgeInsets.all(10.0),
                 child: SizedBox(
                   width: double.infinity,
-                  // parte superior de la pantalla inclullendo el
+                  // parte superior de la pantalla inclullendo el boton
                   child: Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(left: 10.0),
@@ -267,6 +241,7 @@ class _ChatCaseState extends State<ChatCase> {
                             child: ModalBottom1(),
                           ),
                           Spacer(),
+                          // boton de enviar
                           Container(
                               padding: EdgeInsets.all(4.0),
                               width: 55.0,
@@ -277,38 +252,28 @@ class _ChatCaseState extends State<ChatCase> {
                                       BorderRadius.all(Radius.circular(15))),
                               child: GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) {
-                                      return Overlay(
-                                        initialEntries: [
-                                          OverlayEntry(builder: (context) {
-                                            return AlertScreen();
-                                          }),
-                                        ],
-                                      );
-                                    }));
+                                    _showDialogFlash();
                                   },
                                   child: Center(
                                     child: Icon(Icons.send,
                                         color: IndevColors.black),
                                   ))),
                           Spacer(),
-                          
                         ],
                       ),
                       FlatButton(
-                            textColor: Color(0xff00adb5),
-                            onPressed: () => _selectEvent(),
-                            child: Text(
-                              "SIGUIENTE",
-                              style: const TextStyle(
-                                color: Color(0xff00adb5),
-                                fontFamily: "Comfortaa",
-                                fontStyle: FontStyle.normal,
-                                letterSpacing: 1,
-                              ),
-                            ),
+                        textColor: Color(0xff00adb5),
+                        onPressed: () => _selectEvent(),
+                        child: Text(
+                          "SIGUIENTE",
+                          style: const TextStyle(
+                            color: Color(0xff00adb5),
+                            fontFamily: "Comfortaa",
+                            fontStyle: FontStyle.normal,
+                            letterSpacing: 1,
                           ),
+                        ),
+                      ),
                     ],
                   ))),
               //child: Container(child: Text('hola'),)
@@ -317,5 +282,17 @@ class _ChatCaseState extends State<ChatCase> {
         ),
       ),
     ));
+  }
+  
+
+  void _showDialogFlash() {
+    FlashHelper.simpleDialog(context,
+        title: 'Felicitaciones!',
+        message:
+            '⚡️Has impartido Justica',
+        negativeAction: Text('Nuevo Rol', style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal*5),),
+        onNegativeActionTap: (controller) => SelectCase(),
+        positiveAction: Text('Menú',style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal*5),),
+        positiveActionTap: (controller) => controller.dismiss());
   }
 }

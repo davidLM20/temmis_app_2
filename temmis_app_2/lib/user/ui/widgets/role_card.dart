@@ -77,7 +77,6 @@ class RoleCard extends StatelessWidget {
     );
 
     return InkWell(
-
       child: card_rol,
       onTap: () {
         api.getHilo().then((resp) {
@@ -88,14 +87,19 @@ class RoleCard extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ChatCase(
-                        hilo: this.hilo,
-                        myRole: "Juez",
+                  builder: (context) => Overlay(
+                        initialEntries: [
+                          OverlayEntry(builder: (context) {
+                            return ChatCase(
+                              hilo: this.hilo,
+                              myRole: "Juez",
+                            );
+                          }),
+                        ],
                       )));
         });
       },
     );
-
   }
 
   Color _selectColor(String rol) {
