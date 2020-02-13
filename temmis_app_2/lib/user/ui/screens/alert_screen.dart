@@ -26,7 +26,7 @@ class _AlertScreenState extends State<AlertScreen> {
             '⚡️A highly customizable, powerful and easy-to-use alerting library for Flutter.',
         negativeAction: Text('NO'),
         onNegativeActionTap: (controller) => controller.dismiss(),
-        positiveAction: Text('YES'),
+        positiveAction: Text('Continuar'),
         positiveActionTap: (controller) => controller.dismiss());
   }
 }
