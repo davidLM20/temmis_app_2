@@ -9,7 +9,7 @@ class CardCases extends StatelessWidget {
   String num_case;
   String case_icon;
 
-  CardCases(this.txt_card, this.num_case, this.case_icon);
+  CardCases(this.txt_card, this.num_case, this.case_icon,);
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -95,11 +95,13 @@ class CardCases extends StatelessWidget {
               ),
             )));
 
-    return Container(
-      child: card
-    );
+    
+    return Container(child: card);
   }
 
+  
+
+  
   Color _selectColor(String cases) {
     var color;
     switch (cases.toLowerCase()) {
@@ -123,21 +125,21 @@ class CardCases extends StatelessWidget {
     switch (iconRol.toLowerCase()) {
       case "4":
         icon = SvgPicture.asset(
-          "assets/img/juez_color.svg",
+          "assets/img/caso.svg",
           height: 100,
           width: 100,
         );
         break;
       case "5":
         icon = SvgPicture.asset(
-          "assets/img/fiscalia_color.svg",
+          "assets/img/criminal.svg",
           height: 100,
           width: 100,
         );
         break;
       case "6":
         icon = SvgPicture.asset(
-          "assets/img/abogado_color.svg",
+          "assets/img/ley.svg",
           height: 100,
           width: 100,
         );
@@ -146,3 +148,6 @@ class CardCases extends StatelessWidget {
     return icon;
   }
 }
+
+
+
