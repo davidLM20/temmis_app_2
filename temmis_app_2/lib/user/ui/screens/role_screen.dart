@@ -59,7 +59,7 @@ class SelectRol extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: SizeConfig.blockSizeVertical*100,
+                  height: SizeConfig.blockSizeVertical * 100,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(

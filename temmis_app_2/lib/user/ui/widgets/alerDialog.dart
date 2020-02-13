@@ -200,7 +200,7 @@ class FlashHelper {
             controller: controller,
             backgroundColor: _backgroundColor(context),
             margin: EdgeInsets.only(
-                left: SizeConfig.blockSizeHorizontal * 13,
+                left: SizeConfig.blockSizeHorizontal * 10,
                 right: SizeConfig.blockSizeHorizontal * 13,
                 top: SizeConfig.blockSizeVertical * 18,
                 bottom: SizeConfig.blockSizeVertical * 20),

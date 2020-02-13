@@ -22,6 +22,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_svg: ^0.17.1
   flash: ^1.2.0
+  frideos: ^1.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -67,5 +68,6 @@ flutter:
     - assets/img/abogado_color.svg
     - assets/img/fiscalia_color.svg
     - assets/img/juez_color.svg
+    - assets/img/mujer.svg
 
 
