@@ -64,10 +64,15 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - assets/
+    - assets/case1.json
     - assets/img/abogado_color.svg
     - assets/img/fiscalia_color.svg
     - assets/img/juez_color.svg
     - assets/img/mujer.svg
+    - assets/img/bloquear.svg
+    - assets/img/caso.svg
+    - assets/img/criminal.svg
+    - assets/img/ley.svg
+
 
 
