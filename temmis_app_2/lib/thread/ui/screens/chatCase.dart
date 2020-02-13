@@ -115,9 +115,7 @@ class _ChatCaseState extends State<ChatCase> {
     this._idRoute = _selectRole();
   }
 
-  // final topo = ;
-
-  //final boto = ;
+  
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,17 +203,12 @@ class _ChatCaseState extends State<ChatCase> {
               ),
             ),
 
-            //BubbleChat(isMe: true),
+           
 
             Expanded(
               //height: double.maxFinite,
               child: Container(
-                //alignment: AlignmentDirectional.topCenter,
-                //color: IndevColors.blue2,
-
-                //width: double.infinity,
-                //child: BubbleChat(isMe: true),
-                //   child: Flexible(
+                
                 child: Scaffold(
                   body: ListView.builder(
                     itemCount: _message.length,

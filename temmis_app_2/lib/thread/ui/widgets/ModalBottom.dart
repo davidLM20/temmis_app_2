@@ -65,7 +65,7 @@ class ModalBottom1 extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     color: IndevColors.gold,
-                    
+                    //child: Flexible(
                     child: Column(
                       //para que el contenedor donde se almacena el texto se ajuste al tamaño del texto
 
