@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:temmis_app_2/user/ui/screens/case_selection.dart';
-import 'package:temmis_app_2/thread/ui/screens/chatCase.dart';
+//import 'package:temmis_app_2/thread/ui/screens/chatCase.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Temis Ascendere',
       theme: ThemeData(
         fontFamily: 'Schyler',

@@ -200,12 +200,13 @@ class FlashHelper {
             controller: controller,
             backgroundColor: _backgroundColor(context),
             margin: EdgeInsets.only(
-                left: SizeConfig.blockSizeHorizontal * 13,
+                left: SizeConfig.blockSizeHorizontal * 10,
                 right: SizeConfig.blockSizeHorizontal * 13,
                 top: SizeConfig.blockSizeVertical * 18,
-                bottom: SizeConfig.blockSizeVertical * 20),
+                bottom: SizeConfig.blockSizeVertical * 17),
             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
             child: Container(
+              alignment: Alignment.center,
                 height: SizeConfig.blockSizeVertical * 80,
                 decoration: BoxDecoration(
                     border: Border.all(
@@ -222,17 +223,19 @@ class FlashHelper {
                               style: _titleStyle(
                                 context,
                               ),
-                            ),
+                      ),
                       message: Text(message, style: _contentStyle(context)),
                       actions: <Widget>[
                         Container(
-                            height: SizeConfig.blockSizeVertical * 35,
-                            width: SizeConfig.blockSizeHorizontal * 50,
+                            height: SizeConfig.blockSizeVertical * 37,
+                            width: SizeConfig.blockSizeHorizontal * 45,
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(
                                 right: SizeConfig.blockSizeHorizontal * 16,
-                                left: SizeConfig.blockSizeHorizontal * 15),
-                            child: Column(
+                                left: SizeConfig.blockSizeHorizontal * 15,
+                                ),
+                            child: Flex( 
+                              
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Container(
@@ -245,7 +248,7 @@ class FlashHelper {
                                 ),
                                 Spacer(),
                                 Container(
-                                  height: SizeConfig.blockSizeVertical * 14.2,
+                                  height: SizeConfig.blockSizeVertical * 16,
                                   child: Column(
                                     children: <Widget>[
                                       if (negativeAction != null)
@@ -271,7 +274,7 @@ class FlashHelper {
                                     ],
                                   ),
                                 )
-                              ],
+                              ], direction: Axis.vertical,
                             ))
                       ],
                     ),

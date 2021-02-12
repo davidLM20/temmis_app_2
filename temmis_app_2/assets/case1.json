@@ -51,12 +51,6 @@
                     "id": 3,
                     "text": "Declaro instalada la audiencia",
                     "role": "Juez",
-                    "next": 4
-                },
-                {
-                    "id": 4,
-                    "text": "Declaro instalada la audiencia",
-                    "role": "Juez",
                     "next": 5
                 },
                 {
@@ -66,22 +60,22 @@
                     "next": 6
                 },
                 {
-                    "id": 7,
+                    "id": 6,
                     "text": "No señor Juez",
                     "role": "Defensa",
+                    "next": 7
+                },
+                {
+                    "id": 7,
+                    "text": "No señor Juez",
+                    "role": "Fiscalia",
                     "next": 8
                 },
                 {
                     "id": 8,
-                    "text": "No señor Juez",
-                    "role": "Fiscalia",
-                    "next": 9
-                },
-                {
-                    "id": 9,
                     "text": "Al no existir criterio alguno declaro la legalidad de la aprehensión",
                     "role": "Fiscalia",
-                    "next": 10
+                    "next": 9
                 },
                 {
                     "id": 9,
@@ -91,17 +85,17 @@
                 },
                 {
                     "id": 10,
-                    "description": "Selecciona una opcción",
+                    "text": "Selecciona una opcción",
                     "option": [
                         {
-                            "text": "1. El 17 de junio del presente año a las 8:30 cerca de la estación a buses, a la altura de la calle 10 de Agosto se acerca al señor Juan Plaza el señor José Anteparra, llamando su atención hacia un callejón con el fin de venderle drogas. Las dos personas se retiran 20 metros cerca del lugar, en dirección al callejón ubicado en la calle Mariana de Jesús, donde el acusado procede a golpear en la cabeza al señor Juan plaza y luego huye del lugar. 2. El agente de policía Juan Mejía realizaba patrullaje de rutina, cuando divisó a dos personas en un callejón cerca a la calle Mariana de Jesús, pero por motivos propios de su profesión, tuvo que alejarse por el lapso aproximado de 5 minutos. Al regresar al lugar pudo notar la ausencia de una persona, mientras la otra yacía en el suelo desorienta; se trataba de Juan Plaza quien procede a informar al oficial de lo sucedido, había sido golpeado y le habían sustraído 400 dólares que consistía en 4 denominaciones de 100. 3. El oficial Mejía inmediatamente procede a la búsqueda del señor José Anteparra, a quien logra capturar en un plazo no mayor a 3 minutos cuando logra aprehenderlo y procede a realizar el registro de sus pertenencias de donde pudo obtener 4 billetes con denominación de 100. 4. Inmediatamente lo trasladan al lugar de los hechos donde el afectado, el señor Juan Plaza lo identifica como su agresor.",
+                            "text": "Opción 1 : 1. El 17 de junio del presente año a las 8:30 cerca de la estación a buses, a la altura de la calle 10 de Agosto se acerca al señor Juan Plaza el señor José Anteparra, llamando su atención hacia un callejón con el fin de venderle drogas. Las dos personas se retiran 20 metros cerca del lugar, en dirección al callejón ubicado en la calle Mariana de Jesús, donde el acusado procede a golpear en la cabeza al señor Juan plaza y luego huye del lugar. 2. El agente de policía Juan Mejía realizaba patrullaje de rutina, cuando divisó a dos personas en un callejón cerca a la calle Mariana de Jesús, pero por motivos propios de su profesión, tuvo que alejarse por el lapso aproximado de 5 minutos. Al regresar al lugar pudo notar la ausencia de una persona, mientras la otra yacía en el suelo desorienta; se trataba de Juan Plaza quien procede a informar al oficial de lo sucedido, había sido golpeado y le habían sustraído 400 dólares que consistía en 4 denominaciones de 100. 3. El oficial Mejía inmediatamente procede a la búsqueda del señor José Anteparra, a quien logra capturar en un plazo no mayor a 3 minutos cuando logra aprehenderlo y procede a realizar el registro de sus pertenencias de donde pudo obtener 4 billetes con denominación de 100. 4. Inmediatamente lo trasladan al lugar de los hechos donde el afectado, el señor Juan Plaza lo identifica como su agresor.",
                             "score": 100,
                             "next": 11
                         },
                         {
-                            "text": "1.El día 17 de junio del presente año aproximadamente a las 8h00  de la mañana, el señor José Anteparra se dirigía a la parada de buses ubicada en la calle Mariana de Jesús. 2.Mientras caminaba logra visualizar a un hombre en el suelo, se le acerca para cerciorarse de su estado: pero dado que su entrada al trabajo era a las 9h00 y antes de ingresar, debía pasar por una entidad bancaria donde depositaría la cantidad de 400 dolares americanos, cantidad que su jefe el señor Juan Cueva propietario del comercial Cueva donde labora, le había encargado el día anterior,dado que al señor Cueva se le hacia imposible hacerlo por varias actividades que debía realizar fuera de la provincia.",
+                            "text": "Opción 2 : 1. El día 17 de junio del presente año aproximadamente a las 8h00  de la mañana, el señor José Anteparra se dirigía a la parada de buses ubicada en la calle Mariana de Jesús. 2.Mientras caminaba logra visualizar a un hombre en el suelo, se le acerca para cerciorarse de su estado: pero dado que su entrada al trabajo era a las 9h00 y antes de ingresar, debía pasar por una entidad bancaria donde depositaría la cantidad de 400 dolares americanos, cantidad que su jefe el señor Juan Cueva propietario del comercial Cueva donde labora, le había encargado el día anterior,dado que al señor Cueva se le hacia imposible hacerlo por varias actividades que debía realizar fuera de la provincia.",
                             "score": 100,
-                            "next": 0
+                            "next": 11
                         }
                     ]
                 },
@@ -175,7 +169,7 @@
                     ]
                 },
                 {
-                    "id": 14,
+                    "id": 15,
                     "score_total": 400
                 }
             ]

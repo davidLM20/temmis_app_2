@@ -6,11 +6,11 @@ import 'package:temmis_app_2/resousers/size_conifg.dart';
 class BubbleChat extends StatelessWidget {
   final bool isMe;
   final String message;
-  // final String role;
+  String role;
   // final String myRole;
 
   //BubbleChat({this.message, this.isMe, this.role, this.myRole});
-  BubbleChat({this.isMe, this.message});
+  BubbleChat({this.isMe, this.message, this.role});
 
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +25,6 @@ class BubbleChat extends StatelessWidget {
                   isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  //width: 500,
-                  //color: Colors.pink,
                   margin: EdgeInsets.only(left: 24, right: 24),
                   padding: EdgeInsets.only(top: 5, left: 10, right: 10),
                   child: Column(children: <Widget>[
@@ -44,24 +42,16 @@ class BubbleChat extends StatelessWidget {
                                   child: Padding(
                                     padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
                                     child: _avatar(
-                                      'juez',
+                                      this.role,
                                     ),
                                   ),
-                                  //     child: Align(
-                                  //   alignment: Alignment.bottomLeft,
-                                  //   child: _avatar('juez'), //avatar
-                                  // )
                                 ),
-
-                          //),
-                          //Spacer(),
                           Flexible(
                             child: Container(
-                                //height: 100,
-                                //margin: EdgeInsets.only(left: 12, right: 10),
-                                //padding: EdgeInsets.fromLTRB(18, 1, 1, 15),
                                 decoration: BoxDecoration(
-                                  color: _selectColor('defensa'),
+                                  color: isMe
+                                      ? Color(0xFFFFF7E4)
+                                      : Color(0xFFE5F4F9),
                                   borderRadius: isMe
                                       ? BorderRadius.only(
                                           topRight: Radius.circular(15),
@@ -77,7 +67,6 @@ class BubbleChat extends StatelessWidget {
                                         ),
                                 ),
                                 child: Container(
-                                    //flex: 4,
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
                                       message,
@@ -88,12 +77,9 @@ class BubbleChat extends StatelessWidget {
                                         color: IndevColors.black,
                                         fontSize: 16,
                                         fontFamily: 'Roboto',
-                                        //letterSpacing: -0.5,
-                                        //wordSpacing: 0.1
                                       ),
                                     ))),
                           ),
-                          //Spacer(),
                         ]),
                     Container(), //hora y fecha
                   ]),
@@ -106,13 +92,13 @@ class BubbleChat extends StatelessWidget {
 
   Widget _avatar(String role) {
     return Container(
-        width: SizeConfig.blockSizeVertical*5,
-        height:SizeConfig.blockSizeVertical*5,
+        width: SizeConfig.blockSizeVertical * 4.5,
+        height: SizeConfig.blockSizeVertical * 4.5,
         decoration: BoxDecoration(
-          color: IndevColors.blue,
+          color: _selectColor(role),
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        padding: EdgeInsets.all(9),
+        padding: EdgeInsets.all(6),
         child: _selectAvatar(role,
             height: SizeConfig.blockSizeVertical * 100,
             width: SizeConfig.blockSizeHorizontal * 100));
@@ -121,13 +107,14 @@ class BubbleChat extends StatelessWidget {
   SvgPicture _selectAvatar(String iconRol,
       {Color color, double height, double width}) {
     var icon;
+    print("avatar: $iconRol");
     switch (iconRol.toLowerCase()) {
       case "juez":
         icon = SvgPicture.asset(
           "assets/img/juez_color.svg",
         );
         break;
-      case "5":
+      case "fiscalia":
         icon = SvgPicture.asset(
           "assets/img/fiscalia_color.svg",
         );
@@ -137,28 +124,32 @@ class BubbleChat extends StatelessWidget {
           "assets/img/abogado_color.svg",
         );
         break;
+      case "secretario":
+        icon = SvgPicture.asset(
+          "assets/img/mujer.svg",
+        );
+        break;
     }
     return icon;
   }
 
   Color _selectColor(String role) {
     var color;
-
+    print("Color: $role");
     switch (role.toLowerCase()) {
-      case "fiscalía":
-        color = Color(0xFFf0d78c);
+      case "fiscalia":
+        color = Color(0xFF7DB1FD);
         break;
       case "juez":
-        color = Color(0xFF4f81c7);
+        color = IndevColors.pink;
         break;
-      case "secretaria":
-        color = Color(0xFFC7C7C7);
+      case "secretario":
+        color = Color(0xFF8D88CE);
         break;
       case "defensa":
-        color = Color(0xFFE5F4F9);
+        color = Color(0xFFEACACA);
         break;
     }
-
     return color;
   }
 }

@@ -100,13 +100,13 @@ class Option {
     });
 
     factory Option.fromJson(Map<String, dynamic> json) => Option(
-        text: json["text"],
+        text: json["text"] == null ? null : json["text"],
         score: json["score"],
         next: json["next"],
     );
 
     Map<String, dynamic> toJson() => {
-        "text": text,
+        "text": text == null ? null : text,
         "score": score,
         "next": next,
     };
